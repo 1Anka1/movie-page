@@ -73,3 +73,6 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+Design: 
+https://www.figma.com/file/ecJA7IihNM9lYu8nRG7FIg/MovieBox-(Community)?type=design&node-id=1283-544&mode=design&t=TLdzlZplka9vhXWy-0
