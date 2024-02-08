@@ -1,11 +1,14 @@
 <script setup lang="ts">
-const { data, pending, error, refresh } = useFetch<any>(
-  'https://jsonplaceholder.typicode.com/todos',
-);
+import { useMovieByDayFetch, useMoviesStore } from '~/entities/movie';
+
+const { moviesPagination, movies } = storeToRefs(useMoviesStore());
+const { data } = await useMovieByDayFetch();
+
+moviesPagination.value = data.value;
 </script>
 
 <template>
-  <div v-for="item in data" :key="item.id" style="font-family: 'Inter'">
-    {{ item.title }}
+  <div v-for="movie in movies" :key="movie.id">
+    {{ movie.title }}
   </div>
 </template>
