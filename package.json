@@ -22,7 +22,6 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "reading-time-estimator": "^1.9.4",
     "swiper": "^11.0.7"
   }
 }
