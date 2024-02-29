@@ -5,7 +5,7 @@ export default <RouterConfig>{
     {
       name: 'home',
       path: '/',
-      component: () => import('~/pages/Home.vue'),
+      component: () => import('~/pages/home/Home.vue'),
     },
     {
       name: 'about',

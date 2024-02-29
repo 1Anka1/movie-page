@@ -20,5 +20,9 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "vue": "^3.4.16",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "reading-time-estimator": "^1.9.4",
+    "swiper": "^11.0.7"
   }
 }

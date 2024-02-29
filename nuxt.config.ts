@@ -16,6 +16,7 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['./models'],
   },
+  css: ['swiper/css'],
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',

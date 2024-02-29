@@ -1,6 +1,6 @@
 import type { Movie } from '..';
 
-export const useMovieByDayFetch = () => {
+export const useMoviesByDayFetch = () => {
   const config = useRuntimeConfig();
 
   return useFetch<Pagination<Movie>>('/trending/movie/day', {
