@@ -10,13 +10,15 @@ export default defineNuxtConfig({
   googleFonts: {
     base64: true,
     families: {
-      Inter: true,
+      'DM Sans': {
+        wght: '100..1000',
+        ital: '100..1000',
+      },
     },
   },
   imports: {
     dirs: ['./models'],
   },
-  css: ['swiper/css'],
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
@@ -24,6 +26,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/google-fonts',
   ],
+  css: ['swiper/css', '~/assets/css/main.css'],
   experimental: {
     componentIslands: true,
   },

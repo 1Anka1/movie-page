@@ -22,6 +22,8 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@jamescoyle/vue-icon": "^0.1.2",
+    "@mdi/js": "^7.4.47",
     "swiper": "^11.0.7"
   }
 }
