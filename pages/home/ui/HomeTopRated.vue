@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { useMoviesTopRatedFetch } from '~/entities/movie';
-
-const { data } = await useMoviesTopRatedFetch();
+import { useMoviesByWeekFetch } from '~/entities/movie';
+const { data } = await useMoviesByWeekFetch();
 </script>
 
 <template>
