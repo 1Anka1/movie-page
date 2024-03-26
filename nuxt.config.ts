@@ -7,25 +7,21 @@ export default defineNuxtConfig({
       apiMovieKey: process.env.API_MOVIE_KEY,
     },
   },
-  googleFonts: {
-    base64: true,
-    families: {
-      'DM Sans': {
-        wght: '100..1000',
-        ital: '100..1000',
-      },
+  tailwindcss: {
+    config: {
+      content: ['./entities/**/*.vue'],
     },
+  },
+  components: {
+    dirs: ['./components/ui'],
   },
   imports: {
     dirs: ['./models'],
   },
-  modules: [
-    '@pinia/nuxt',
-    '@nuxtjs/tailwindcss',
-    '@vueuse/nuxt',
-    '@nuxt/image',
-    '@nuxtjs/google-fonts',
-  ],
+  image: {
+    domains: ['image.tmdb.org'],
+  },
+  modules: ['@pinia/nuxt', '@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxt/image', '@nuxt/fonts'],
   css: ['swiper/css', '~/assets/css/main.css'],
   experimental: {
     componentIslands: true,

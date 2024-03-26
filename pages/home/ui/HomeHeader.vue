@@ -2,27 +2,23 @@
   <header class="header container">
     <nav class="header__nav-header">
       <div class="header__logo-container">
-        <img src="~/assets/img/tv.png" width="50" height="50" />
+        <!-- <img src="~/assets/img/tv.png" width="50" height="50" /> -->
         <span class="header__title-logo">MovieBox</span>
       </div>
-      <Search />
+      <ASearch />
       <div class="header__sign-in-form">
         <a href="#">
           <span>Sign In</span>
         </a>
         <a href="#">
           <svg width="36" height="36" class="header_icon">
-            <use href="~/assets/img/sprite.svg#icon-menu"></use>
+            <!-- <use href="~/assets/img/sprite.svg#icon-menu"></use> -->
           </svg>
         </a>
       </div>
     </nav>
   </header>
 </template>
-
-<script setup>
-import Search from '~/components/ASearch.vue';
-</script>
 
 <style scoped>
 .header__nav-header {
