@@ -1,11 +1,15 @@
 <template>
   <HomeHeader />
-  <HomeTopRated />
-  <MovieTrendingPage />
+  <MovieTrendingByDayPage />
+  <MovieUpcomingPage />
+  <MovieTopRatedPage />
+  <Footer />
 </template>
 
 <script setup lang="ts">
 import HomeHeader from './ui/HomeHeader.vue';
-import HomeTopRated from './ui/HomeTopRated.vue';
-import MovieTrendingPage from './ui/MovieTrendingPage.vue';
+import MovieTrendingByDayPage from './ui/MovieTrendingByDayPage.vue';
+import MovieUpcomingPage from './ui/MovieUpcomingPage';
+import MovieTopRatedPage from './ui/MovieTopRatedPage';
+import Footer from './ui/Footer.vue';
 </script>

@@ -1,68 +1,55 @@
 <template>
-  <header class="header container">
-    <nav class="header__nav-header">
-      <div class="header__logo-container">
-        <!-- <img src="~/assets/img/tv.png" width="50" height="50" /> -->
-        <span class="header__title-logo">MovieBox</span>
+  <header class="absolute left-0 right-0 top-0 z-10 p-4 text-white">
+    <nav class="grid grid-flow-col place-items-center justify-around">
+      <div class="flex items-center gap-5">
+        <div class="rounded-full bg-primary p-3">
+          <AIcon name="tv" class="fill-white" />
+        </div>
+        <span class="text-3xl font-bold">MovieBox</span>
       </div>
       <ASearch />
-      <div class="header__sign-in-form">
-        <a href="#">
-          <span>Sign In</span>
-        </a>
-        <a href="#">
-          <svg width="36" height="36" class="header_icon">
-            <!-- <use href="~/assets/img/sprite.svg#icon-menu"></use> -->
-          </svg>
-        </a>
+      <div class="flex items-center gap-7">
+        <button>Sign In</button>
+        <div class="rounded-full bg-primary p-2">
+          <div class="relative h-5 w-5 cursor-pointer">
+            <div class="absolute left-0.5 top-1 h-0.5 w-4 rounded-lg bg-white"></div>
+            <div class="absolute left-0.5 top-3 h-0.5 w-4 rounded-lg bg-white"></div>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
+
+  <ASwiper>
+    <ASwiperSlide v-for="movie in data?.results ?? []" :key="movie.id">
+      <div class="relative mb-14 text-white">
+        <NuxtImg
+          :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`"
+          :alt="movie.original_title"
+          class="h-400 mb-4 w-full object-cover"
+        />
+        <div class="absolute left-24 top-1/3 w-96">
+          <h1 class="mb-4 text-5xl font-bold">
+            {{ movie.original_title }}
+          </h1>
+          <div class="mb-4 flex gap-2">
+            <div class="flex items-center gap-2.5">
+              <AIcon name="imdb" class="h-5 w-10" />
+              <p class="text-xs">{{ Math.round(movie.vote_average) }}/10</p>
+            </div>
+            <div class="flex items-center gap-1">
+              <AIcon name="tomato" class="h-5 w-10" />
+              <p class="text-xs">{{ Math.round((movie.vote_average * 100) / 10) }}%</p>
+            </div>
+          </div>
+          <p>{{ movie.overview }}</p>
+        </div>
+      </div>
+    </ASwiperSlide>
+  </ASwiper>
 </template>
 
-<style scoped>
-.header__nav-header {
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.header__logo-container {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.header__title-logo {
-  font-size: 32px;
-  font-weight: 700;
-  vertical-align: middle;
-}
-
-.header__sign-in-form {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  align-items: center;
-}
-
-.header__nav-header a {
-  color: black;
-  font-family: 'Source Code Pro', monospace;
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 0.7rem;
-  transition: 0.3s;
-}
-
-.header_icon {
-  background-color: #be123c;
-  color: black;
-  border-radius: 50%;
-  padding: 2px 4px;
-}
-
-.header__nav-header a:hover {
-  color: rgba(134, 50, 183, 0.657);
-}
-</style>
+<script setup lang="ts">
+import { useMoviesByWeekFetch } from '~/entities/movie';
+const { data } = await useMoviesByWeekFetch();
+</script>

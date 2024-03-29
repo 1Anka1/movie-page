@@ -1,27 +1,12 @@
 <template>
   <div>
-    <form @submit.prevent="">
-      <input type="search" class="search-form" placeholder="What do you want to watch?" />
+    <form class="relative">
+      <input
+        type="search"
+        class="w-[500px] rounded-md border bg-transparent p-3 outline-none placeholder:text-white focus:border-primary"
+        placeholder="What do you want to watch?"
+      />
+      <AIcon name="search" class="color absolute right-3 top-4" />
     </form>
   </div>
 </template>
-
-<script setup></script>
-
-<style scoped>
-.search-form {
-  padding: 10px;
-  width: 500px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  outline: none;
-}
-
-.search-form::placeholder {
-  color: #999;
-}
-
-.search-form:focus {
-  border-color: #ff002bc4;
-}
-</style>
