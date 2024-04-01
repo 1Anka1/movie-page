@@ -10,6 +10,5 @@
 <script setup>
 import MovieCard from '~/entities/movie/ui/MovieCard.vue';
 import { useMoviesByDayFetch } from '~/entities/movie/index';
-
 const { data } = await useMoviesByDayFetch();
 </script>
