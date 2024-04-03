@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import type { Movie } from '..'
+
+defineProps<{
+  movie: Movie
+}>()
+</script>
+
 <template>
   <div>
     <div class="relative mb-3">
@@ -14,26 +22,26 @@
       </button>
     </div>
     <div>
-      <p class="mb-2 text-xs text-gray-500">{{ movie.release_date }}</p>
-      <h2 class="mb-2 line-clamp-2 h-14 text-lg">{{ movie.original_title }}</h2>
+      <p class="mb-2 text-xs text-gray-500">
+        {{ movie.release_date }}
+      </p>
+      <h2 class="mb-2 line-clamp-2 h-14 text-lg">
+        {{ movie.original_title }}
+      </h2>
       <div class="flex justify-between">
         <div class="flex items-center gap-2.5">
           <AIcon name="imdb" class="h-5 w-10" />
-          <p class="text-xs">{{ Math.round(movie.vote_average) }}/10</p>
+          <p class="text-xs">
+            {{ Math.round(movie.vote_average) }}/10
+          </p>
         </div>
         <div class="flex items-center gap-1">
           <AIcon name="tomato" class="h-5 w-10" />
-          <p class="text-xs">{{ Math.round((movie.vote_average * 100) / 10) }}%</p>
+          <p class="text-xs">
+            {{ Math.round((movie.vote_average * 100) / 10) }}%
+          </p>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { Movie } from '..';
-
-defineProps<{
-  movie: Movie;
-}>();
-</script>

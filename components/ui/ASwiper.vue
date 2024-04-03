@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import Swiper from 'swiper';
-import type { SwiperOptions } from 'swiper/types';
+import Swiper from 'swiper'
+import type { SwiperOptions } from 'swiper/types'
 
 const { options } = defineProps<{
-  options?: SwiperOptions;
-}>();
+  options?: SwiperOptions
+}>()
 
-const wrapper = ref<HTMLDivElement>();
+const wrapper = ref<HTMLDivElement>()
 
-let swiper: Swiper;
+let swiper: Swiper
 
 onMounted(() => {
-  swiper = new Swiper(wrapper.value!, options);
-});
+  swiper = new Swiper(wrapper.value!, options)
+})
 
 onBeforeUnmount(() => {
-  swiper.destroy();
-});
+  swiper.destroy()
+})
 </script>
 
 <template>

@@ -1,4 +1,4 @@
-import type { RouterConfig } from '@nuxt/schema';
+import type { RouterConfig } from '@nuxt/schema'
 
 export default <RouterConfig>{
   routes: () => [
@@ -8,4 +8,4 @@ export default <RouterConfig>{
       component: () => import('~/pages/home/Home.vue'),
     },
   ],
-};
+}

@@ -1,6 +1,12 @@
+<script setup lang="ts">
+import { useMoviesByWeekFetch } from '~/entities/movie'
+
+const { data } = await useMoviesByWeekFetch()
+</script>
+
 <template>
-  <header class="absolute left-0 right-0 top-0 z-10 p-4 text-white">
-    <nav class="grid grid-flow-col place-items-center justify-around">
+  <header class="container absolute inset-x-0 top-0 z-10 p-4 text-white">
+    <nav class="grid grid-flow-col place-items-center justify-between">
       <div class="flex items-center gap-5">
         <div class="rounded-full bg-primary p-3">
           <AIcon name="tv" class="fill-white" />
@@ -11,9 +17,9 @@
       <div class="flex items-center gap-7">
         <button>Sign In</button>
         <div class="rounded-full bg-primary p-2">
-          <div class="relative h-5 w-5 cursor-pointer">
-            <div class="absolute left-0.5 top-1 h-0.5 w-4 rounded-lg bg-white"></div>
-            <div class="absolute left-0.5 top-3 h-0.5 w-4 rounded-lg bg-white"></div>
+          <div class="relative size-5 cursor-pointer">
+            <div class="absolute left-0.5 top-1 h-0.5 w-4 rounded-lg bg-white" />
+            <div class="absolute left-0.5 top-3 h-0.5 w-4 rounded-lg bg-white" />
           </div>
         </div>
       </div>
@@ -35,11 +41,15 @@
           <div class="mb-4 flex gap-2">
             <div class="flex items-center gap-2.5">
               <AIcon name="imdb" class="h-5 w-10" />
-              <p class="text-xs">{{ Math.round(movie.vote_average) }}/10</p>
+              <p class="text-xs">
+                {{ Math.round(movie.vote_average) }}/10
+              </p>
             </div>
             <div class="flex items-center gap-1">
               <AIcon name="tomato" class="h-5 w-10" />
-              <p class="text-xs">{{ Math.round((movie.vote_average * 100) / 10) }}%</p>
+              <p class="text-xs">
+                {{ Math.round((movie.vote_average * 100) / 10) }}%
+              </p>
             </div>
           </div>
           <p>{{ movie.overview }}</p>
@@ -48,8 +58,3 @@
     </ASwiperSlide>
   </ASwiper>
 </template>
-
-<script setup lang="ts">
-import { useMoviesByWeekFetch } from '~/entities/movie';
-const { data } = await useMoviesByWeekFetch();
-</script>

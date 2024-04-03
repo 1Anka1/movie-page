@@ -12,7 +12,9 @@
         <a href="#" target="_blank"> Privacy & Policy</a>
         <a href="#" target="_blank"> Press Room</a>
       </div>
-      <p class="text-center text-gray-500">© 2021 MoviePage by Anna Kasianenko</p>
+      <p class="text-center text-gray-500">
+        © 2021 MoviePage by Anna Kasianenko
+      </p>
     </div>
   </footer>
 </template>

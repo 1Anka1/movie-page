@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import * as icons from '~/components/icons';
+import * as icons from '~/components/icons'
 
 defineProps<{
-  name: keyof typeof icons;
-}>();
+  name: keyof typeof icons
+}>()
 </script>
 
 <template>

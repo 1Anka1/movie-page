@@ -3,8 +3,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
-      apiMovieBaseUrl: process.env.API_MOVIE_BASE_URL,
-      apiMovieKey: process.env.API_MOVIE_KEY,
+      apiMovieBaseUrl: '',
+      apiMovieKey: '',
     },
   },
   tailwindcss: {
@@ -26,4 +26,4 @@ export default defineNuxtConfig({
   experimental: {
     componentIslands: true,
   },
-});
+})

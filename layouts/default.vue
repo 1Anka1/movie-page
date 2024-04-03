@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const title = ref('Movie Page');
+const title = ref('Movie Page')
 </script>
 
 <template>
