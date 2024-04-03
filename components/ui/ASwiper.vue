@@ -4,6 +4,11 @@ import type { SwiperOptions } from 'swiper/types'
 
 const { options } = defineProps<{
   options?: SwiperOptions
+  innerClass?: any
+}>()
+
+const emit = defineEmits<{
+  init: []
 }>()
 
 const wrapper = ref<HTMLDivElement>()
@@ -12,6 +17,7 @@ let swiper: Swiper
 
 onMounted(() => {
   swiper = new Swiper(wrapper.value!, options)
+  emit('init')
 })
 
 onBeforeUnmount(() => {
@@ -21,7 +27,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div ref="wrapper" class="swiper">
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper" :class="innerClass">
       <slot />
     </div>
   </div>

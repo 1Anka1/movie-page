@@ -5,6 +5,9 @@ export default <RouterConfig>{
     {
       name: 'home',
       path: '/',
+      meta: {
+        layout: 'main',
+      },
       component: () => import('~/pages/home/Home.vue'),
     },
   ],

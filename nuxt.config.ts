@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     },
   },
   components: {
-    dirs: ['./components/ui'],
+    dirs: ['./components/ui', './components/app'],
   },
   imports: {
     dirs: ['./models'],
