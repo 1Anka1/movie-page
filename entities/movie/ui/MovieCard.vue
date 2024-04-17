@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import type { Movie } from '..'
+import { useMoviesGenresStore } from '..'
 
-defineProps<{
+const { movie } = defineProps<{
   movie: Movie
 }>()
+
+const moviesGenresStore = useMoviesGenresStore()
+
+const genres = computed(() => movie.genre_ids.map(id => moviesGenresStore.genres.find(genre => genre.id === id)?.name))
 </script>
 
 <template>
@@ -23,12 +28,12 @@ defineProps<{
     </div>
     <div>
       <p class="mb-2 text-xs text-gray-500">
-        {{ movie.release_date }}
+        {{ new Date(movie.release_date).getFullYear() }}
       </p>
       <h2 class="mb-2 line-clamp-2 h-14 text-lg">
         {{ movie.original_title }}
       </h2>
-      <div class="flex justify-between">
+      <div class="flex justify-between mb-2">
         <div class="flex items-center gap-2.5">
           <AIcon name="imdb" class="h-5 w-10" />
           <p class="text-xs">
@@ -41,6 +46,9 @@ defineProps<{
             {{ Math.round((movie.vote_average * 100) / 10) }}%
           </p>
         </div>
+      </div>
+      <div class="text-xs text-gray-500">
+        {{ genres.join(', ') }}
       </div>
     </div>
   </div>

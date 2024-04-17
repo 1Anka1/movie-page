@@ -11,7 +11,7 @@ const isMounted = ref(false)
 </script>
 
 <template>
-  <div>
+  <div :class="{ 'me-[-10px]': !isMounted }">
     <h2 class="mb-10 text-3xl font-bold">
       <slot name="title" />
     </h2>

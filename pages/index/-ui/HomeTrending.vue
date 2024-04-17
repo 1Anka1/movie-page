@@ -5,9 +5,11 @@ const { data } = await useMoviesByDayFetch()
 </script>
 
 <template>
-  <MovieSwiper class="container mb-32" :movies="data!.results">
-    <template #title>
-      Trending Movie
-    </template>
-  </MovieSwiper>
+  <div class="container mb-32">
+    <MovieSwiper :movies="data!.results">
+      <template #title>
+        Trending Movie
+      </template>
+    </MovieSwiper>
+  </div>
 </template>

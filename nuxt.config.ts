@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
+    apiMovieAccessToken: '',
     public: {
       apiMovieBaseUrl: '',
       apiMovieKey: '',
@@ -16,7 +17,7 @@ export default defineNuxtConfig({
     dirs: ['./components/ui', './components/app'],
   },
   imports: {
-    dirs: ['./models'],
+    dirs: ['./models', './stores'],
   },
   image: {
     domains: ['image.tmdb.org'],

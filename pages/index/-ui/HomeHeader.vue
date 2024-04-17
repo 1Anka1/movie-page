@@ -2,6 +2,7 @@
 import { useMoviesByWeekFetch } from '~/entities/movie'
 
 const { data } = await useMoviesByWeekFetch()
+const { requestPermissions } = useAuthStore()
 </script>
 
 <template>
@@ -15,7 +16,9 @@ const { data } = await useMoviesByWeekFetch()
       </div>
       <ASearch />
       <div class="flex items-center gap-7">
-        <button>Sign In</button>
+        <button @click="requestPermissions">
+          Sign In
+        </button>
         <div class="rounded-full bg-primary p-2">
           <div class="relative size-5 cursor-pointer">
             <div class="absolute left-0.5 top-1 h-0.5 w-4 rounded-lg bg-white" />
@@ -32,7 +35,7 @@ const { data } = await useMoviesByWeekFetch()
         <NuxtImg
           :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`"
           :alt="movie.original_title"
-          class="h-400 mb-4 w-full object-cover"
+          class="mb-4 w-full object-cover"
         />
         <div class="absolute left-24 top-1/3 w-96">
           <h1 class="mb-4 text-5xl font-bold">

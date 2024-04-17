@@ -5,9 +5,11 @@ const { data } = await useMoviesTopRatedFetch()
 </script>
 
 <template>
-  <MovieSwiper class="container mb-32" :movies="data!.results">
-    <template #title>
-      Top Rated
-    </template>
-  </MovieSwiper>
+  <div class="container mb-32">
+    <MovieSwiper :movies="data!.results">
+      <template #title>
+        Top Rated
+      </template>
+    </MovieSwiper>
+  </div>
 </template>
