@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { useMoviesByWeekFetch } from '~/entities/movie'
+import { MovieSwiper, useMoviesByWeekFetch, useSearchMoviesStore } from '~/entities/movie'
+
+const moviesBySearch = useSearchMoviesStore()
 
 const { data } = await useMoviesByWeekFetch()
 const { requestPermissions } = useAuthStore()
@@ -29,7 +31,15 @@ const { requestPermissions } = useAuthStore()
     </nav>
   </header>
 
-  <ASwiper>
+  <div v-if="moviesBySearch.movies && moviesBySearch.movies.length > 0" class="container my-32">
+    <MovieSwiper :movies="moviesBySearch!.movies">
+      <template #title>
+        Search Movies
+      </template>
+    </MovieSwiper>
+  </div>
+
+  <ASwiper v-else>
     <ASwiperSlide v-for="movie in data?.results ?? []" :key="movie.id">
       <div class="relative mb-14 text-white">
         <NuxtImg
