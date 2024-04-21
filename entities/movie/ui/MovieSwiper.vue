@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Pagination } from 'swiper/modules'
+import { Navigation } from 'swiper/modules'
 import type { Movie } from '..'
 import MovieCard from './MovieCard.vue'
 
@@ -17,7 +17,7 @@ const isMounted = ref(false)
     </h2>
     <ASwiper
       :options="{
-        modules: [Pagination],
+        modules: [Navigation],
         slidesPerView: 1,
         spaceBetween: 10,
         breakpoints: {
