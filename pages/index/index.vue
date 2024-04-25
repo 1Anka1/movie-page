@@ -3,7 +3,7 @@ import HomeHeader from './-ui/HomeHeader.vue'
 import HomeTrending from './-ui/HomeTrending.vue'
 import HomeUpcoming from './-ui/HomeUpcoming.vue'
 import HomeTopRated from './-ui/HomeTopRated.vue'
-import HomeActorCast from './-ui/HomeActorCast.vue'
+import HomeActors from './-ui/HomeActors.vue'
 
 definePageMeta({
   layout: 'main',
@@ -15,5 +15,5 @@ definePageMeta({
   <HomeTrending />
   <HomeUpcoming />
   <HomeTopRated />
-  <HomeActorCast />
+  <HomeActors />
 </template>

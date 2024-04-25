@@ -6,12 +6,10 @@ import MovieCard from './MovieCard.vue'
 defineProps<{
   movies: Movie[]
 }>()
-
-const isMounted = ref(false)
 </script>
 
 <template>
-  <div :class="{ 'me-[-10px]': !isMounted }">
+  <div>
     <h2 class="mb-10 text-3xl font-bold">
       <slot name="title" />
     </h2>
@@ -32,13 +30,11 @@ const isMounted = ref(false)
           },
         },
       }"
-      :inner-class="{ '!flex gap-[10px]': !isMounted }"
-      @init="isMounted = true"
     >
       <ASwiperSlide
         v-for="movie in movies"
         :key="movie.id"
-        :class="{ '!w-full sm:!w-[calc(50%-10px)] md:!w-[calc(25%-10px)] lg:!w-[calc(20%-10px)]': !isMounted }"
+        class="mr-[10px] !w-full sm:!w-[calc(50%-10px)] md:!w-[calc(25%-10px)] lg:!w-[calc(20%-10px)]"
       >
         <MovieCard :movie="movie" />
       </ASwiperSlide>

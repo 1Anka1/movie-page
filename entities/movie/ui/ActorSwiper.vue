@@ -6,12 +6,10 @@ import ActorCard from './ActorCard.vue'
 defineProps<{
   actors: Actor[]
 }>()
-
-const isMounted = ref(false)
 </script>
 
 <template>
-  <div :class="{ 'me-[-10px]': !isMounted }">
+  <div>
     <h2 class="mb-10 text-3xl font-bold">
       <slot name="title" />
     </h2>
@@ -32,13 +30,11 @@ const isMounted = ref(false)
           },
         },
       }"
-      :inner-class="{ '!flex gap-[10px]': !isMounted }"
-      @init="isMounted = true"
     >
       <ASwiperSlide
         v-for="actor in actors"
         :key="actor.id"
-        :class="{ '!w-full sm:!w-[calc(50%-10px)] md:!w-[calc(25%-10px)] lg:!w-[calc(20%-10px)]': !isMounted }"
+        class="mr-[50px] !w-full sm:!w-[calc(calc(100%/3)-50px)] lg:!w-[calc(25%-50px)]"
       >
         <ActorCard :actor="actor" />
       </ASwiperSlide>

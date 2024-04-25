@@ -9,11 +9,11 @@
       </div>
       <div class="mb-9 flex flex-row items-center justify-center gap-12 font-bold">
         <a href="#" target="_blank">Conditions of Use</a>
-        <a href="#" target="_blank"> Privacy & Policy</a>
-        <a href="#" target="_blank"> Press Room</a>
+        <a href="#" target="_blank">Privacy & Policy</a>
+        <a href="#" target="_blank">Press Room</a>
       </div>
       <p class="text-center text-gray-500">
-        © 2024 MoviePage by Anna Kasianenko
+        © {{ new Date().getFullYear() }} MoviePage by Anna Kasianenko
       </p>
     </div>
   </footer>

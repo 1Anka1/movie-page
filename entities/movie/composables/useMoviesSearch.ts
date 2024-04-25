@@ -1,8 +1,6 @@
 import type { Movie } from '../models/Movie'
 
-export const useSearchMoviesStore = defineStore('searchStore', () => {
-  const movies = ref<Movie[]>([])
-
+export function useMoviesSearch() {
   const getMoviesBySearch = async (search: string) => {
     const config = useRuntimeConfig()
 
@@ -13,11 +11,11 @@ export const useSearchMoviesStore = defineStore('searchStore', () => {
         query: search,
       },
     })
-    movies.value = res.results
+
     return res.results
   }
+
   return {
-    movies,
     getMoviesBySearch,
   }
-})
+}

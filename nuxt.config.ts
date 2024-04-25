@@ -13,6 +13,8 @@ export default defineNuxtConfig({
       content: ['./entities/**/*.vue'],
     },
   },
+  // eslint-disable-next-line node/prefer-global/process
+  ignore: [process.env.NODE_ENV === 'production' ? 'pages/**/-*' : ''],
   components: {
     dirs: ['./components/ui', './components/app'],
   },

@@ -7,17 +7,12 @@ const { options } = defineProps<{
   innerClass?: any
 }>()
 
-const emit = defineEmits<{
-  init: []
-}>()
-
 const wrapper = ref<HTMLDivElement>()
 
 let swiper: Swiper
 
 onMounted(() => {
   swiper = new Swiper(wrapper.value!, options)
-  emit('init')
 })
 
 onBeforeUnmount(() => {
