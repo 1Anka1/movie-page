@@ -56,7 +56,20 @@ async function submit() {
         class="block px-3 py-2"
         @click="isFocused = false"
       >
-        <p>{{ movie.original_title }}</p>
+        <div class="flex gap-5">
+          <NuxtImg
+            :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`"
+            :alt="movie.original_title"
+            width="50"
+          />
+          <div class="flex flex-col">
+            <p>{{ movie.original_title }}</p>
+            <p class="my-1 text-xs text-gray-500">
+              {{ new Date(movie.release_date).getFullYear() }}
+            </p>
+          </div>
+        </div>
+        <div />
       </NuxtLink>
     </div>
   </div>

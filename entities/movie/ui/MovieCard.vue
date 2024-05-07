@@ -39,6 +39,7 @@ const genres = computed(() => movie.genre_ids.map(id => moviesGenresStore.genres
           <p class="text-xs">
             {{ Math.round(movie.vote_average) }}/10
           </p>
+
         </div>
         <div class="flex items-center gap-1">
           <AIcon name="tomato" class="h-5 w-10" />
