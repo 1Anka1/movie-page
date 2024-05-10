@@ -15,9 +15,3 @@ export interface Movie {
   vote_average: number
   vote_count: number
 }
-export interface MovieByID extends Movie {
-  budget: number
-  origin_country: []
-  status: string
-  runtime: number
-}

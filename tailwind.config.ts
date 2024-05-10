@@ -7,7 +7,11 @@ export default <Partial<Config>>{
         sans: ['DM Sans', 'sans-serif'],
       },
       colors: {
-        primary: '#BE123C',
+        primary: {
+          dark: '#a10f32',
+          DEFAULT: '#be123c',
+          light: '#d31946',
+        },
       },
     },
     container: {

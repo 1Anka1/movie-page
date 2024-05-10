@@ -1,19 +1,20 @@
-<!-- eslint-disable vue/valid-v-for -->
 <script setup lang="ts">
-import { useMovieByID } from '~/entities/movie'
+import { useMovie } from '~/entities/movie'
 
 definePageMeta({
   layout: 'main',
 })
 
 const route = useRoute()
-const id = ref(route.params.id)
-const data = await useMovieByID().getMovieByID(id.value)
+
+const { getMovieByID } = useMovie()
+
+const data = await getMovieByID(route.params.id as string)
 </script>
 
 <template>
-  <div class="relative mb-9 h-[min(100vh,1300px)] text-white">
-    <div class="pointer-events-none absolute inset-0 z-[2] bg-black/50 " />
+  <div class="page-header">
+    <div class="pointer-events-none absolute inset-0 z-[2] bg-black/50" />
     <NuxtImg
       :src="`https://image.tmdb.org/t/p/original/${data.backdrop_path}`"
       :alt="data.original_title"
@@ -37,11 +38,12 @@ const data = await useMovieByID().getMovieByID(id.value)
             {{ data.overview }}
           </p>
           <div>
-            <ul class=" flex text-base tracking-wide gap-8">
+            <ul class="flex gap-8 text-base tracking-wide">
               <li>
-                <span class="text-primary">Status: </span> {{ data.status }}</li>
+                <span class="text-primary">Status: </span> {{ data.status }}
+              </li>
               <li>
-                <span class="text-primary">Realease: </span> {{ new Date(data.release_date).getFullYear() }}
+                <span class="text-primary">Release: </span> {{ new Date(data.release_date).getFullYear() }}
               </li>
               <li class="mb-5">
                 <span class="text-primary">Runtime: </span>  {{ data.runtime }} min
@@ -92,9 +94,9 @@ const data = await useMovieByID().getMovieByID(id.value)
       </div>
     </div>
     <div class="mb-8 flex items-center justify-center">
-      <button type="submit" class="rounded-md bg-primary px-5 py-2 text-sm text-white ">
-        Sent
-      </button>
+      <AButton>
+        Send
+      </AButton>
     </div>
   </div>
 </template>

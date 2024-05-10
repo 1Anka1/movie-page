@@ -7,7 +7,7 @@ const { data } = await useMoviesByWeekFetch()
 <template>
   <ASwiper class="mb-14">
     <ASwiperSlide v-for="movie in data?.results ?? []" :key="movie.id">
-      <div class="relative h-[min(100vh,1300px)] text-white">
+      <div class="page-header">
         <div class="pointer-events-none absolute inset-0 z-[2] bg-black/50" />
         <NuxtImg
           :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`"

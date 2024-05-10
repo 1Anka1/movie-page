@@ -1,15 +1,16 @@
-import type { MovieByID } from '..'
+import type { MovieDetails } from '..'
 
-export function useMovieByID() {
-  const getMovieByID = async (movie_id: string) => {
+export function useMovie() {
+  const getMovieByID = async (movieId: string) => {
     const config = useRuntimeConfig()
 
-    const res = await $fetch<MovieByID>(`/movie/${movie_id}`, {
+    const res = await $fetch<MovieDetails>(`/movie/${movieId}`, {
       baseURL: config.public.apiMovieBaseUrl,
       query: {
         api_key: config.public.apiMovieKey,
       },
     })
+
     return res
   }
 
