@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core'
-import { type Movie, useMoviesGenresStore, useMoviesSearch } from '~/entities/movie'
+import { type Collection, useMoviesGenresStore, useMoviesSearch } from '~/entities/movie'
 
 const { genres } = storeToRefs(useMoviesGenresStore())
 const { getMoviesBySearch } = useMoviesSearch()
 const search = ref('')
-const foundMovies = ref<Movie[]>([])
+const foundMovies = ref<Collection[]>([])
 
 watchDebounced(search, async () => {
   foundMovies.value = await getMoviesBySearch(search.value)
@@ -62,11 +62,16 @@ async function submit() {
         @click="isFocused = false"
       >
         <div class="flex items-center gap-5">
-          <NuxtImg
-            :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`"
-            :alt="movie.original_title"
-            width="50"
-          />
+          <div>
+            <NuxtImg
+              :src="movie.poster_path
+                ? `https://image.tmdb.org/t/p/original/${movie.poster_path}`
+                : '/img/no-image.png'"
+              :alt="movie.original_title"
+              width="50"
+              class=" aspect-[2/3] object-cover"
+            />
+          </div>
           <div class="flex flex-col">
             <div>{{ movie.original_title }}</div>
             <div class="my-1 text-xs text-gray-500">

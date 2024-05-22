@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { Navigation } from 'swiper/modules'
-import type { Movie } from '..'
+import type { Collection } from '..'
 import MovieCard from './MovieCard.vue'
 
 defineProps<{
-  movies: Movie[]
+  movies: Collection[]
 }>()
 </script>
 

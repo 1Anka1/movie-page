@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-svh">
+  <div class="min-h-svh bg-slate-50	">
     <TheHeader />
     <slot />
     <TheFooter />

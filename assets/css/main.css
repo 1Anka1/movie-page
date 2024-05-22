@@ -3,5 +3,13 @@
 }
 
 .page-header {
-  @apply relative min-h-[min(100vh,1300px)] text-white flex items-center pt-24 pb-10
+  @apply relative min-h-[min(100vh,1300px)] text-white flex items-center pt-24 pb-10 mb-8
+}
+
+.movie-hover {
+  @apply absolute top-0 left-0 bg-gray-800 w-full h-full opacity-0 transition-opacity duration-300 flex items-center justify-center text-white
+}
+
+.is-hovered {
+  @apply opacity-80
 }

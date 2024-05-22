@@ -4,7 +4,6 @@ import { useMovie } from '~/entities/movie'
 definePageMeta({
   layout: 'main',
 })
-
 const route = useRoute()
 
 const { getMovieByID } = useMovie()
@@ -20,20 +19,24 @@ const data = await getMovieByID(route.params.id as string)
       :alt="data.original_title"
       class="absolute inset-0 z-[1] size-full object-cover object-top"
     />
-
-    <div class="container relative inset-y-1/4 z-[2] flex h-[400px] gap-8 bg-black/65 p-5 text-white">
+    <div class="container relative inset-y-1/4 z-[2] flex h-[400px] gap-8 rounded-md bg-black/65 p-5 text-white">
       <NuxtImg
-        :src="`https://image.tmdb.org/t/p/original/${data.poster_path}`"
+
+        :src="data.poster_path
+          ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
+          : '/img/no-image.png'"
         :alt="data.original_title"
         width="350"
-        class="object-cover"
+        class="aspect-[7/10] object-cover"
       />
-
       <div>
         <div class="grid gap-5">
           <h1 class="text-5xl font-bold">
             {{ data.original_title }}
           </h1>
+          <div class=" text-sm text-gray-500">
+            {{ data.genres.map((genre) => genre.name).join(', ') }}
+          </div>
           <p class="text-lg">
             {{ data.overview }}
           </p>
@@ -44,6 +47,9 @@ const data = await getMovieByID(route.params.id as string)
               </li>
               <li>
                 <span class="text-primary">Release: </span> {{ new Date(data.release_date).getFullYear() }}
+              </li>
+              <li>
+                <span class="text-primary">Budget: </span>  {{ data.budget.toLocaleString('en-US') }} $
               </li>
               <li class="mb-5">
                 <span class="text-primary">Runtime: </span>  {{ data.runtime }} min
@@ -67,36 +73,6 @@ const data = await getMovieByID(route.params.id as string)
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="m-auto flex w-[500px] flex-col">
-    <h2 class="mb-3 text-xl font-bold">
-      What do you think about {{ data.original_title }}?
-    </h2>
-    <div class="grid gap-5">
-      <div>
-        <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
-        <div class="mt-2">
-          <div class="flex rounded-md ring-1 ring-gray-300">
-            <input id="username" type="text" name="username" class="block flex-1 border-0 bg-transparent p-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6" placeholder="Your nickname">
-          </div>
-        </div>
-      </div>
-      <div class="mb-5">
-        <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About</label>
-        <div class="mt-2">
-          <textarea
-            name="about"
-            placeholder="Write a few sentences about the movie."
-            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="mb-8 flex items-center justify-center">
-      <AButton>
-        Send
-      </AButton>
     </div>
   </div>
 </template>

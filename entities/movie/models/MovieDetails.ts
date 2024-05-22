@@ -3,7 +3,7 @@ import type { Genre } from './Genre'
 export interface MovieDetails {
   adult: boolean
   backdrop_path: string
-  belongs_to_collection: BelongsToCollection
+  belongs_to_MovieDetails: BelongsToMovieDetails
   budget: number
   genres: Genre[]
   homepage: string
@@ -29,7 +29,7 @@ export interface MovieDetails {
   vote_count: number
 }
 
-interface BelongsToCollection {
+interface BelongsToMovieDetails {
   id: number
   name: string
   poster_path: string
