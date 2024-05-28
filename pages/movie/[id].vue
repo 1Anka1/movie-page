@@ -24,7 +24,7 @@ const data = await getMovieByID(route.params.id as string)
 
         :src="data.poster_path
           ? `https://image.tmdb.org/t/p/original/${data.poster_path}`
-          : '/img/no-image.png'"
+          : '/img/no-available-image.png'"
         :alt="data.original_title"
         width="350"
         class="aspect-[7/10] object-cover"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useMoviesGenresStore, useMultiRequest } from '~/entities/movie'
+import { ActorSwiper, MovieSwiper, useMultiRequest } from '~/entities/movie'
 
 definePageMeta({
   layout: 'main',
@@ -10,20 +10,27 @@ const { getMultiRequest } = useMultiRequest()
 
 const data = await getMultiRequest(route.query.q as string)
 
-const { genres } = storeToRefs(useMoviesGenresStore())
+// const { genres } = storeToRefs(useMoviesGenresStore())
 </script>
 
 <template>
-  <div v-for="movie in data" :key="movie.id" class="container mb-32">
-    <!-- <MovieSwiper :movies="data">
+  <div class="wrapper">
+    <div class="mb-2 mt-28 line-clamp-2 h-14 text-lg">
+      Search result: {{ route.query.q }}
+    </div>
+    <ActorSwiper v-if="data?.actors && data.actors.length > 0" :actors="data.actors">
+      {{ data.actors }}
       <template #title>
-        Trending Movie
+        Actors
       </template>
-    </MovieSwiper> -->
-    {{ movie.title }}
-    <div class="text-xs text-gray-500">
-      {{ genres.filter(g => movie.genre_ids.includes(g.id)).map(g => g.name).join(', ')
-      }}
+    </ActorSwiper>
+
+    <div v-if="data?.collections && data.collections.length > 0">
+      <MovieSwiper :movies="data.collections">
+        <template #title>
+          Movie
+        </template>
+      </MovieSwiper>
     </div>
   </div>
 </template>

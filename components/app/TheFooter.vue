@@ -2,10 +2,10 @@
   <footer>
     <div class="container mb-5">
       <div class="mb-9 flex flex-row items-center justify-center gap-12">
-        <a href="https://www.facebook.com/" target="_blank"><AIcon name="facebook" /></a>
-        <a href="https://www.instagram.com/" target="_blank"> <AIcon name="instagram" /></a>
-        <a href="https://www.twitter.com/" target="_blank"> <AIcon name="twitter" /></a>
-        <a href="https://www.youtube.com/" target="_blank"> <AIcon name="youtube" /></a>
+        <a class="footer_icon-hover" href="https://www.facebook.com/" target="_blank"><AIcon name="facebook" /></a>
+        <a class="footer_icon-hover" href="https://www.instagram.com/" target="_blank"> <AIcon name="instagram" /></a>
+        <a class="footer_icon-hover" href="https://www.twitter.com/" target="_blank"> <AIcon name="twitter" /></a>
+        <a class="footer_icon-hover" href="https://www.youtube.com/" target="_blank"> <AIcon name="youtube" /></a>
       </div>
       <div class="mb-9 flex flex-row items-center justify-center gap-12 font-bold">
         <a href="#" target="_blank">Conditions of Use</a>

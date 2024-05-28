@@ -5,7 +5,7 @@ const { data } = await useMoviesByDayFetch()
 </script>
 
 <template>
-  <div class="container mb-32">
+  <div class="wrapper">
     <MovieSwiper :movies="data!.results">
       <template #title>
         Trending Movie

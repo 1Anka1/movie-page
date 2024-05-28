@@ -6,6 +6,7 @@ export interface Collection {
   media_type: string
   original_language: string
   original_title: string
+  original_name: string
   overview: string
   popularity: number
   poster_path: string
@@ -14,4 +15,5 @@ export interface Collection {
   video: boolean
   vote_average: number
   vote_count: number
+  first_air_date: number
 }

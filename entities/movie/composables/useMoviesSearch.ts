@@ -1,4 +1,4 @@
-import type { Collection } from '../models/Collection'
+import type { Collection } from '..'
 
 export function useMoviesSearch() {
   const getMoviesBySearch = async (search: string) => {

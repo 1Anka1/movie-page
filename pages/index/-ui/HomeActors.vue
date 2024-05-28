@@ -2,10 +2,11 @@
 import { ActorSwiper, useActorsCast } from '~/entities/movie'
 
 const { data } = await useActorsCast()
+
 </script>
 
 <template>
-  <div class="container mb-32">
+  <div class="wrapper">
     <ActorSwiper :actors="data!.results">
       <template #title>
         Cast of characters

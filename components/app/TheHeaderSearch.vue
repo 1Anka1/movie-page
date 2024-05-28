@@ -66,7 +66,7 @@ async function submit() {
             <NuxtImg
               :src="movie.poster_path
                 ? `https://image.tmdb.org/t/p/original/${movie.poster_path}`
-                : '/img/no-image.png'"
+                : '/img/no-available-image.png'"
               :alt="movie.original_title"
               width="50"
               class=" aspect-[2/3] object-cover"

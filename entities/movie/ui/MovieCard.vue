@@ -24,7 +24,7 @@ const genres = computed(() => movie.genre_ids.map(id => moviesGenresStore.genres
         <NuxtImg
           :src="movie.poster_path
             ? `https://image.tmdb.org/t/p/original/${movie.poster_path}`
-            : '/img/no-image.png'"
+            : '/img/no-available-image.png'"
           :alt="movie.original_title"
           width="300"
           class="aspect-[9/14] w-full rounded-md object-cover"
@@ -41,13 +41,13 @@ const genres = computed(() => movie.genre_ids.map(id => moviesGenresStore.genres
       <AIcon name="heart" />
     </button>
 
-    <div class="bg-white p-2">
+    <div class=" p-2">
       <p class="mb-2 text-xs text-gray-500">
-        {{ new Date(movie.release_date).getFullYear() }}
+        {{ new Date(movie.release_date).getFullYear() || new Date(movie.first_air_date).getFullYear() }}
       </p>
-      <h2 class="mb-2 line-clamp-3	 h-12 text-lg leading-tight">
+      <h2 class="mb-2 line-clamp-3 h-14 text-lg leading-none">
         <NuxtLink :to="`/movie/${movie.id}`">
-          {{ movie.original_title }}
+          {{ movie.original_title || movie?.original_name }}
         </NuxtLink>
       </h2>
       <div class="mb-3 text-xs text-gray-500">
