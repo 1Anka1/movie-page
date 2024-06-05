@@ -1,11 +1,29 @@
 <script setup lang="ts">
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { useMoviesByWeekFetch } from '~/entities/movie'
 
 const { data } = await useMoviesByWeekFetch()
 </script>
 
 <template>
-  <ASwiper class="mb-14">
+  <ASwiper
+    class="mb-14"
+    :options="{
+      modules: [Navigation, Pagination, Autoplay],
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+    }"
+  >
+    <template #inner>
+      <div class="swiper-button-prev" />
+      <div class="swiper-button-next" />
+    </template>
     <ASwiperSlide v-for="movie in data?.results ?? []" :key="movie.id">
       <div class="page-header">
         <div class="pointer-events-none absolute inset-0 z-[2] bg-black/50" />

@@ -18,10 +18,16 @@ onMounted(() => {
 onBeforeUnmount(() => {
   swiper.destroy()
 })
+
+defineExpose({
+  next: () => swiper.slideNext(),
+  prev: () => swiper.slidePrev(),
+})
 </script>
 
 <template>
   <div ref="wrapper" class="swiper">
+    <slot name="inner" />
     <div class="swiper-wrapper" :class="innerClass">
       <slot />
     </div>

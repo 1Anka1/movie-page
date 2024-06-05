@@ -1,21 +1,26 @@
 <script setup lang="ts">
-import { Navigation } from 'swiper/modules'
-import type { Collection } from '..'
+import type { Movie } from '../models/Movie'
 import MovieCard from './MovieCard.vue'
+import type { ASwiper } from '#build/components'
 
 defineProps<{
-  movies: Collection[]
+  movies: Movie[]
 }>()
+
+const swiper = ref<InstanceType<typeof ASwiper>>()
 </script>
 
 <template>
   <div>
-    <h2 class="mb-10 text-3xl font-bold">
-      <slot name="title" />
-    </h2>
+    <div class="flex justify-between">
+      <h2 class="mb-10 text-3xl font-bold">
+        <slot name="title" />
+      </h2>
+      <ASwiperArrows @next="swiper?.next" @prev="swiper?.prev" />
+    </div>
     <ASwiper
+      ref="swiper"
       :options="{
-        modules: [Navigation],
         slidesPerView: 1,
         spaceBetween: 10,
         breakpoints: {

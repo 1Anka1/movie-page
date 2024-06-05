@@ -12,7 +12,7 @@ export default defineEventHandler(async () => {
     },
   })
 
-  console.log(123,request_token)
+  console.log(123, request_token)
 
   const res = $fetch<{
     expires_at: string

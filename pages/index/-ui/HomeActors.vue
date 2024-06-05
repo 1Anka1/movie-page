@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { ActorSwiper, useActorsCast } from '~/entities/movie'
+import { PersonsSwiper, usePopularPersons } from '~/entities/person'
 
-const { data } = await useActorsCast()
-
+const { data } = await usePopularPersons()
 </script>
 
 <template>
   <div class="wrapper">
-    <ActorSwiper :actors="data!.results">
+    <PersonsSwiper :persons="data!.results">
       <template #title>
         Cast of characters
       </template>
-    </ActorSwiper>
+    </PersonsSwiper>
   </div>
 </template>

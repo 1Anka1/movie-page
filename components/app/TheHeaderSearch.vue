@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core'
-import { type Collection, useMoviesGenresStore, useMoviesSearch } from '~/entities/movie'
+import { type Movie, useMoviesGenresStore, useMoviesSearch } from '~/entities/movie'
 
 const { genres } = storeToRefs(useMoviesGenresStore())
 const { getMoviesBySearch } = useMoviesSearch()
 const search = ref('')
-const foundMovies = ref<Collection[]>([])
+const foundMovies = ref<Movie[]>([])
 
 watchDebounced(search, async () => {
   foundMovies.value = await getMoviesBySearch(search.value)
@@ -39,7 +39,7 @@ async function submit() {
         class="w-[500px] rounded-md border border-gray-200 bg-transparent p-3 outline-none duration-150 placeholder:text-white"
         :class="{
           'rounded-b-none': isFocused && foundMovies.length,
-          'bg-white text-black placeholder:text-black': isFocused,
+          'bg-white text-black focus:placeholder:text-black': isFocused,
         }"
         placeholder="What do you want to watch?"
         @click="isFocused = true"
@@ -51,7 +51,7 @@ async function submit() {
       />
     </form>
     <div
-      class="absolute inset-x-0 top-full max-h-52 overflow-y-auto rounded-b-md border border-t-0 border-gray-200 bg-white text-black duration-150"
+      class="absolute inset-x-0 top-full max-h-96 overflow-y-auto rounded-b-md border border-t-0 border-gray-200 bg-white text-black duration-150"
       :class="{ 'pointer-events-none translate-y-10 opacity-0': !isFocused || foundMovies.length === 0 }"
     >
       <NuxtLink

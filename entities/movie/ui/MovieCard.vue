@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import type { Collection } from '..'
-import { useMoviesGenresStore } from '..'
+import { type Movie, useMoviesGenresStore } from '..'
 
 const { movie } = defineProps<{
-  movie: Collection
+  movie: Movie
 }>()
 
 const isHovered = ref(false)
 
 const moviesGenresStore = useMoviesGenresStore()
 
-const genres = computed(() => movie.genre_ids.map(id => moviesGenresStore.genres.find(genre => genre.id === id)?.name))
+const genres = computed(() => movie.genre_ids.map(id => moviesGenresStore.genres.find(genre => genre.id === id)?.name).join(', '))
 </script>
 
 <template>
@@ -40,18 +39,17 @@ const genres = computed(() => movie.genre_ids.map(id => moviesGenresStore.genres
     >
       <AIcon name="heart" />
     </button>
-
     <div class=" p-2">
       <p class="mb-2 text-xs text-gray-500">
-        {{ new Date(movie.release_date).getFullYear() || new Date(movie.first_air_date).getFullYear() }}
+        {{ new Date(movie.release_date).getFullYear() }}
       </p>
       <h2 class="mb-2 line-clamp-3 h-14 text-lg leading-none">
         <NuxtLink :to="`/movie/${movie.id}`">
-          {{ movie.original_title || movie?.original_name }}
+          {{ movie.original_title }}
         </NuxtLink>
       </h2>
-      <div class="mb-3 text-xs text-gray-500">
-        {{ genres.join(', ') }}
+      <div v-tooltip="genres" class="mb-3 line-clamp-1 text-xs text-gray-500">
+        {{ genres }}
       </div>
       <div class="mb-2 flex justify-between">
         <div class="flex items-center gap-2.5">

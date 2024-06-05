@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { Navigation } from 'swiper/modules'
-import type { Actor } from '..'
-import ActorCard from './ActorCard.vue'
+import type { Person } from '../models/Person'
+import PersonCard from './PersonCard.vue'
 
 defineProps<{
-  actors: Actor[]
+  persons: Person[]
 }>()
 </script>
 
@@ -32,11 +32,11 @@ defineProps<{
       }"
     >
       <ASwiperSlide
-        v-for="actor in actors"
-        :key="actor.id"
+        v-for="person in persons"
+        :key="person.id"
         class="mr-[50px] !w-full sm:!w-[calc(calc(100%/3)-50px)] lg:!w-[calc(25%-50px)]"
       >
-        <ActorCard :actor="actor" />
+        <PersonCard :person />
       </ASwiperSlide>
     </ASwiper>
   </div>

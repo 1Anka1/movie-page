@@ -1,0 +1,5 @@
+.v-popper--theme-tooltip div.v-popper {
+  &__inner {
+    @apply text-xs py-1 px-2;
+  }
+}
