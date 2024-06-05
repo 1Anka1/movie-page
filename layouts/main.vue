@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-svh">
+  <div class="min-h-svh ">
     <TheHeader />
     <slot />
     <TheFooter />

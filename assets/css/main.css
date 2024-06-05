@@ -11,7 +11,7 @@
 }
 
 .movie-hover {
-  @apply absolute top-0 left-0 bg-gray-800 w-full h-full opacity-0 transition-opacity duration-300 flex items-center justify-center text-white
+  @apply absolute top-0 left-0 bg-gray-800 w-full h-full opacity-0 transition-opacity duration-300 flex items-center justify-center text-white rounded-md
 }
 
 .is-hovered {

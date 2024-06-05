@@ -9,8 +9,6 @@ const route = useRoute()
 const { getMultiRequest } = useMultiRequest()
 
 const data = await getMultiRequest(route.query.q as string)
-
-// const { genres } = storeToRefs(useMoviesGenresStore())
 </script>
 
 <template>

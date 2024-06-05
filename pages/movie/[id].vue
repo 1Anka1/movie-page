@@ -27,7 +27,7 @@ const data = await getMovieByID(route.params.id as string)
           : '/img/no-available-image.png'"
         :alt="data.original_title"
         width="350"
-        class="aspect-[7/10] object-cover"
+        class="aspect-[7/10] rounded-md object-cover"
       />
       <div>
         <div class="grid gap-5">
