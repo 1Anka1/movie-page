@@ -18,8 +18,8 @@ export function useMultiRequest() {
 
     const { movie, person } = Object.groupBy(results, ({ media_type }) => media_type)
 
-    movies.value = movie as Movie[]
-    persons.value = person as Person[]
+    movies.value = movie as Movie[] || []
+    persons.value = person as Person[] || []
   }
 
   return {
